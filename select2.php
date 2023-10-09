@@ -35,36 +35,35 @@ $tableHtml = '<table border="1">
                     <th>更新者</th>
                 </tr>';
 
-if ($status == false) {
-  sql_error($stmt);
-} else {
-  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $tableHtml .= '<tr>';
-    $tableHtml .= '<td><a href="detail.php?id=' . $row["id"] . '">' . $row["id"] . '</a></td>';
-    $tableHtml .= '<td>' . $row["genre"] . '</td>';
-    $tableHtml .= '<td><a href="detail.php?id=' . $row["img"] . '">' . $row["img"] . '</td>';
-    $tableHtml .= '<td>' . $row["prodname"] . '</td>';
-    $tableHtml .= '<td>¥' . $row["price"] . '</td>';
-    $tableHtml .= '<td>' . $row["shopname"] . '</td>';
-    $tableHtml .= '<td>' . $row["address"] . '</td>';
-    $tableHtml .= '<td>' . $row["remarks"] . '</td>';
-    $tableHtml .= '<td>' . $row["indate"] . '</td>';
-    $tableHtml .= '<td>' . $row["name"] . '</td>';
-
-  
-  if ($_SESSION["kanri_flg"] == "1") {
-    $tableHtml .= '<td>';
-    $tableHtml .= '<a class="btn btn-danger" href="delete.php?id=' . $row["id"] . '">';
-    $tableHtml .= '[<i class="glyphicon glyphicon-remove"></i>削除]';
-    $tableHtml .= '</a>';
-    $tableHtml .= '</td>';
-  }
-
-  $tableHtml .= '</tr>';
-  
-  }
-  $tableHtml .= '</table>';
-}
+                if ($status == false) {
+                  sql_error($stmt);
+                } else {
+                  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td><a href="detail.php?id=' . $row["id"] . '">' . $row["id"] . '</a></td>';
+                    $tableHtml .= '<td>' . $row["genre"] . '</td>';
+                    $tableHtml .= '<td><img src="upload/' . $row["img"] . '" width="auto" height="70">';
+                    $tableHtml .= '<td>' . $row["prodname"] . '</td>';
+                    $tableHtml .= '<td>¥' . $row["price"] . '</td>';
+                    $tableHtml .= '<td>' . $row["shopname"] . '</td>';
+                    $tableHtml .= '<td>' . $row["address"] . '</td>';
+                    $tableHtml .= '<td>' . $row["remarks"] . '</td>';
+                    $tableHtml .= '<td>' . $row["indate"] . '</td>';
+                    $tableHtml .= '<td>' . $row["name"] . '</td>';
+                
+                
+                    if ($_SESSION["kanri_flg"] == "1") {
+                      $tableHtml .= '<td>';
+                      $tableHtml .= '<a class="btn btn-danger" href="delete.php?id=' . $row["id"] . '">';
+                      $tableHtml .= '[<i class="glyphicon glyphicon-remove"></i>削除]';
+                      $tableHtml .= '</a>';
+                      $tableHtml .= '</td>';
+                    }
+                
+                    $tableHtml .= '</tr>';
+                  }
+                  $tableHtml .= '</table>';
+                }
 
 echo $tableHtml;
 ?>

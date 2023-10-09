@@ -103,16 +103,3 @@
     padding: 30px;
     ;
   }
-
-  /* インプットと交際費使用記録アップロードのスタイル */
-  ul li a {
-    color: orange;
-    /* 文字色をオレンジに設定 */
-    text-decoration: none;
-    /* 下線を非表示に */
-  }
-
-  ul li a:hover {
-    text-decoration: underline;
-    /* カーソルが当たると下線を表示 */
-  }

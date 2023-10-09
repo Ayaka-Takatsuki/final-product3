@@ -5,16 +5,28 @@ include("funcs.php");
 $pdo = db_conn();
 
 //1. POSTデータ取得
-$genre   = $_POST["genre"];
-$prodname  = $_POST["prodname"];
+$genre = $_POST["genre"];
+$prodname = $_POST["prodname"];
 $price = $_POST["price"];
 $current_img = $_POST["current_img"]; // 既存の画像ファイル名を取得
 
 // 新しい画像のアップロードを試み、成功すれば新しい画像ファイル名、失敗すれば元の画像ファイル名を取得
-$img  = fileUpload("upfile","upload");
-if ($img === "ファイル取得エラー" || $img === "ファイル移動に失敗") {
-  $img = $current_img; // アップロードに失敗した場合、元の画像ファイル名を使用
+if (!empty($_FILES["upfile"]["name"])) { // 新しい画像が選択されているかを確認
+  $img = fileUpload("upfile", "upload");
+  if ($img === "ファイル取得エラー" || $img === "ファイル移動に失敗") {
+    $img = $current_img; // アップロードに失敗した場合、元の画像ファイル名を使用
+  } else {
+    // 新しい画像がアップロード成功した場合、既存の画像ファイルを削除
+    $currentImage = "upload/" . $current_img;
+    if (file_exists($currentImage)) {
+      unlink($currentImage);
+    }
+  }
+} else {
+  // 新しい画像が選択されていない場合、既存の画像ファイル名を使用
+  $img = $current_img;
 }
+
 $shopname = $_POST["shopname"];
 $address = $_POST["address"];
 $remarks = $_POST["remarks"];

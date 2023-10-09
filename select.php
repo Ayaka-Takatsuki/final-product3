@@ -87,15 +87,18 @@ if ($status == false) {
       <button id="send">検索</button>
     </div>
 
-    <!-- <h4>リスト登録：<a href="index.php">直接インプット</a></h4>
-    <h4>リスト登録：交際費記録アップロード</h4>
+    <h4>リスト登録</h4>
+    <ul>
+    <li><a href="index.php">インプット</a></li>
+    <li>交際費記録アップロード</li>
     <form action="upload.php" method="post" enctype="multipart/form-data">
       <input type="file" name="fileToUpload" id="fileToUpload">
       <input type="submit" value="アップロード" name="submit">
+  </ul>
     </form>
- -->
 
-    <h4>データ登録</h4>
+
+    <!-- <h4>データ登録</h4>
     <ul>
       <li><a href="index.php">直接インプット</a></li>
       <li>
@@ -106,7 +109,7 @@ if ($status == false) {
           <input type="submit" value="アップロード" name="submit" style="display: none;">
         </form>
       </li>
-    </ul>
+    </ul> -->
     
     <div class="container jumbotron" id="view"><?= $tableHtml ?></div>
 

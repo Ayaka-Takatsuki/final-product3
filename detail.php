@@ -76,6 +76,7 @@ if ($status == false) {
           }
           ?>
 
+
           <br>
 
           <input type="submit" value="送信">

@@ -19,7 +19,7 @@ sschk();
 
 <!-- Head[Start] -->
 <header>
-    <?php echo $_SESSION["name"]; ?>さん　
+    <!-- <?php echo $_SESSION["name"]; ?>さん -->
     <?php include("menu.php"); ?>
 </header>
 <!-- Head[End] -->
