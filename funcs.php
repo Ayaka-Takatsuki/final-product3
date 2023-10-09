@@ -8,7 +8,7 @@ function h($str){
 function db_conn(){
   try {
     $db_name = "aya-17-ms_gs_db5";    //データベース名
-    $db_id   = "root";      //アカウント名
+    $db_id   = "aya-17-ms";      //アカウント名
     $db_pw   = "1287Tmam";      //パスワード：XAMPPはパスワード無しに修正してください。
     $db_host = "mysql57.aya-17-ms.sakura.ne.jp"; //DBホスト
     return new PDO('mysql:dbname='.$db_name.';charset=utf8;host='.$db_host, $db_id, $db_pw);
